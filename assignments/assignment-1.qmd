@@ -50,10 +50,10 @@ cat("Total NA sayısı:", total_na_num, "\n")
 
 modified_data_changes <- polls_us_election_2016
 
-# Değişiklikleri yapmadan önce tarih sütunları kontrol ediliyor
+# Let's check the date columns before making changes
 for (col in names(modified_data_changes)) {
   if (inherits(modified_data_changes[[col]], "Date")) {
-    # Tarih sütununa NA atama
+    # Assign NA to a date column
     modified_data_changes[[col]][is.na(modified_data_changes[[col]])] <- as.Date("2001-01-01")
   } else if (is.numeric(modified_data_changes[[col]])) {
     modified_data_changes[[col]][is.na(modified_data_changes[[col]])] <- 2001
@@ -62,10 +62,10 @@ for (col in names(modified_data_changes)) {
   }
 }
 
-# İlk 10 satırı göster
+# Let's show the first 10 lines
 head(modified_data_changes, 10)
 
-# Kalan NA sayısını hesapla
+# Let's calculate the remaining NA number
 remaining_na_num <- sum(is.na(modified_data_changes))
 cat("Remaining NA number:", remaining_na_num, "\n")
 
