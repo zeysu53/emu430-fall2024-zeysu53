@@ -17,9 +17,9 @@ sidebar: false
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  Firm Özgörkeyler Holding , position production planning intern , year 2023
 
-2.  Firm bbb, position yyy, year yyy
+2.  Firm Limak, position production and hr intern ,year 2024
 
 # Projects
 

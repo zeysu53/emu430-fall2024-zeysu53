@@ -12,4 +12,62 @@ My first assignment has two parts.
 
 ## (a)
 
+```{r}
+#For my Data Analytics course assignment, I analyzed a conversation between Baykal Hafızoğlu and Erdi Daşdemir about the overlap between data science and industrial engineering. They shared insights on their career paths, practical use of analytical tools, and the impact of emerging trends such as AI.
+
+#Baykal began by discussing his academic background and professional experiences, highlighting the objectives of the data analytics course and the relevance of technology in the industry. He reflected on his journey from academia to working at Lam Soft and Pred, stressing the importance of practical skills and decision-making under pressure. 
+
+#The speakers also touched on their personal interests, such as Tango and podcasting, emphasizing the need for a work-life balance. They delved into the creation of analytical models to solve business challenges, showcasing how data analytics aids decision-making with real-world examples.
+
+#Prototyping was highlighted as essential in software development for gathering user feedback, along with the importance of user-friendly interfaces. They discussed both the advantages and challenges of analytical models, noting the significant cost reductions achieved but also the potential pitfalls if not designed correctly.
+
+#The conversation reinforced the importance of developing skills in mathematical modeling and coding, recommending Python as a practical programming language. They concluded by discussing how AI and demand forecasting are shaping the industry while cautioning against overly relying on single forecasts due to their inherent uncertainties.
+
+#Overall, the discussion provided important insights into the integration of data science with industrial engineering, emphasizing the need for practical experience and a balance between theory and application. It serves as a valuable resource for anyone looking to connect academic knowledge with real-world business needs.
+
+#Discuss the role of user feedback and prototyping in software development for data science applications. How do these practices contribute to better project outcomes, and what challenges might arise when user feedback is not properly incorporated?
+ #What is one reason Baykal Hafızoğlu emphasizes the importance of scenario-based planning in decision-making?
+
+#a) It reduces the workload by avoiding unnecessary forecasts.
+#b) It allows organizations to explore multiple outcomes and prepare for uncertainties.
+
+#c) It eliminates the need for user feedback in software development.
+#d) It guarantees that the first forecast will always be accurate.
+```
+
 ## (b)
+
+```{r}
+if (require(dslabs)) install.packages("dslabs")
+library(dslabs)
+
+data("polls_us_election_2016")
+
+head(polls_us_election_2016, 10)
+
+total_na_num <- sum(is.na(polls_us_election_2016))
+cat("Total NA sayısı:", total_na_num, "\n")
+
+modified_data_changes <- polls_us_election_2016
+
+# Değişiklikleri yapmadan önce tarih sütunları kontrol ediliyor
+for (col in names(modified_data_changes)) {
+  if (inherits(modified_data_changes[[col]], "Date")) {
+    # Tarih sütununa NA atama
+    modified_data_changes[[col]][is.na(modified_data_changes[[col]])] <- as.Date("2001-01-01")
+  } else if (is.numeric(modified_data_changes[[col]])) {
+    modified_data_changes[[col]][is.na(modified_data_changes[[col]])] <- 2001
+  } else {
+    modified_data_changes[[col]][is.na(modified_data_changes[[col]])] <- "Zeynep"
+  }
+}
+
+# İlk 10 satırı göster
+head(modified_data_changes, 10)
+
+# Kalan NA sayısını hesapla
+remaining_na_num <- sum(is.na(modified_data_changes))
+cat("Remaining NA number:", remaining_na_num, "\n")
+
+
+```
